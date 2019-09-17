@@ -29,9 +29,9 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
     ```
     interface eth0
 
-    static ip_address=x.x.x.x/24 (e.g. 10.42.0.11/24 or 192.168.0.151)
+    static ip_address=x.x.x.x/24 (e.g. 10.42.0.101/24 or 192.168.0.151)
     static routers=x.x.x.x (e.g. 10.42.0.1 or 192.168.0.1)
     static domain_name_servers=x.x.x.x (e.g. 10.42.0.1 or 192.168.0.1)
     ```
     * reboot
-
+  * Copy your local SSH key onto the PI for no-password ssh login: `ssh-copy-id pi@x.x.x.x`
