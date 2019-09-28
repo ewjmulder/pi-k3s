@@ -39,7 +39,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
 * Install k3s on the master:
   * ssh into master and execute installation script: `curl -sfL https://get.k3s.io | sh -`
   
-  
+  Issue: If you give internet to the cluster by sharing your wifi over ethernet on a Linux system (Ubuntu / Mint / others?) you will get an IP range slash: both "Share with other computers" DHCP and k3s use the 10.42.0.xxx range. To solve this you could get k3s to use another range, but that can be tricky to get working (in my experience). Easier fix is to let the DHCP of the connection sharing use another range, which you can easily configure in the GUI.
 
 Installing k3s on master: seems success, but system completely hangs afterwards
 ```
