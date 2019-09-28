@@ -38,6 +38,16 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * Copy your local SSH key onto the PI for no-password ssh login: `ssh-copy-id pi@x.x.x.x`
 * Install k3s on the master:
   * ssh into master and execute installation script: `curl -sfL https://get.k3s.io | sh -`
+  * Check that is started successfully: `sudo systemctl status k3s`
+  * Grab the join key of the master: `sudo cat /var/lib/rancher/k3s/server/node-token`
+* Install k3s on each node:
+  * ssh into each node and execute:
+  * `export K3S_URL="https://x.x.x.x:6443"`
+  * `export K3S_TOKEN="Kxxx::node:xxx"` (join key of master)
+  * Run the installation script: `curl -sfL https://get.k3s.io | sh -` (it will know from the env vars that it's supposed to be a node for that server)
+* Now you can see the nodes when executing on the master: `kubectl get node -o wide`
+  * TODO: This actually requires sudo, is that ok? Or maybe have it like that on the master itself, but not on a machine connecting to the master 
+  
   
   Issue: If you give internet to the cluster by sharing your wifi over ethernet on a Linux system (Ubuntu / Mint / others?) you will get an IP range slash: both "Share with other computers" DHCP and k3s use the 10.42.0.xxx range. To solve this you could get k3s to use another range, but that can be tricky to get working (in my experience). Easier fix is to let the DHCP of the connection sharing use another range, which you can easily configure in the GUI.
 
