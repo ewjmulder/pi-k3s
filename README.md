@@ -36,7 +36,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * Enable container features: `sudo nano /boot/cmdline.txt` and append `cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory` to end of line
   * reboot: `sudo reboot -h now`
   * Copy your local SSH key onto the PI for no-password ssh login: `ssh-copy-id pi@x.x.x.x`
-* Install k3s on the master:
+* Install k3s on the master: (Used this page as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspberry-pi/)
   * ssh into master and execute installation script: `curl -sfL https://get.k3s.io | sh -`
   * Check that is started successfully: `sudo systemctl status k3s`
   * Grab the join key of the master: `sudo cat /var/lib/rancher/k3s/server/node-token`
@@ -48,7 +48,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
 * Now you can see the nodes when executing on the master: `kubectl get node -o wide`
   * TODO: This actually requires sudo, is that ok? Or maybe have it like that on the master itself, but not on a machine connecting to the master 
 
-* Install 'Blinkt!':
+* Install 'Blinkt!': (https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-blinkt)
   * `curl https://get.pimoroni.com/blinkt | bash` (2 x 'y' during installation)
   * `sudo reboot -h now` to apply changes (actually seems not to be needed)
   
