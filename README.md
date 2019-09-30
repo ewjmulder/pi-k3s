@@ -47,8 +47,10 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * Run the installation script: `curl -sfL https://get.k3s.io | sh -` (it will know from the env vars that it's supposed to be a node for that server)
 * Now you can see the nodes when executing on the master: `kubectl get node -o wide`
   * TODO: This actually requires sudo, is that ok? Or maybe have it like that on the master itself, but not on a machine connecting to the master 
+* When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. Therefore we need the KUBECONFIG file. TODO: how to connect this...
 
-* Install 'Blinkt!': (https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-blinkt)
+
+* Optional mod: Install 'Blinkt!': (https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-blinkt)
   * `curl https://get.pimoroni.com/blinkt | bash` (2 x 'y' during installation)
   * `sudo reboot -h now` to apply changes (actually seems not to be needed)
   
