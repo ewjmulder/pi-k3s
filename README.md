@@ -2,14 +2,14 @@
 Setup and management of a raspberry pi kubernetes cluster
 
 ## Hardware
-Pico cluster R-Pi 5E: https://www.picocluster.com/products/pico-5-raspberry-pi?variant=42238421772
-5 x Samsung EVO 32 GB micro SD cards
-Assembled according to instructions.
-Mod: added Blinkt! (https://shop.pimoroni.com/products/blinkt)
-Maybe to be added: custom LCD display with status
+* Pico cluster R-Pi 5E: https://www.picocluster.com/products/pico-5-raspberry-pi?variant=42238421772
+* 5 x Samsung EVO 32 GB micro SD cards
+* Assembled according to instructions.
+* Mod: added Blinkt! (https://shop.pimoroni.com/products/blinkt)
+* Maybe to be added: custom LCD display with status
 
 ## Software
-K3S - Lightweight Kubernetes: https://k3s.io/
+* K3S - Lightweight Kubernetes: https://k3s.io/
 
 ## Installation steps:
 Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspberry-pi/
