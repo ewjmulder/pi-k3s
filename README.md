@@ -47,7 +47,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * Run the installation script: `curl -sfL https://get.k3s.io | sh -` (it will know from the env vars that it's supposed to be a node for that server)
 * Now you can see the nodes when executing on the master: `kubectl get node -o wide`
   * TODO: This actually requires sudo, is that ok? Or maybe have it like that on the master itself, but not on a machine connecting to the master 
-* When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. Therefore we need the KUBECONFIG file. TODO: how to connect this...
+* When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. This is very easy: just copy the file `/etc/rancher/k3s/k3s.yaml` from the master onto your local computer to `~/.kube/config` (or merge the contents with your existing config for other clusters)
 
 
 * Optional mod: Install 'Blinkt!': (https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-blinkt)
