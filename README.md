@@ -45,8 +45,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * `export K3S_URL="https://x.x.x.x:6443"`
   * `export K3S_TOKEN="Kxxx::node:xxx"` (join key of master)
   * Run the installation script: `curl -sfL https://get.k3s.io | sh -` (it will know from the env vars that it's supposed to be a node for that server)
-* Now you can see the nodes when executing on the master: `kubectl get node -o wide`
-  * TODO: This actually requires sudo, is that ok? Or maybe have it like that on the master itself, but not on a machine connecting to the master 
+* Now you can see the nodes when executing on the master: `sudo kubectl get node -o wide` 
 * When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. This is very easy: just copy the file `/etc/rancher/k3s/k3s.yaml` from the master onto your local computer to `~/.kube/config` (or merge the contents with your existing config for other clusters)
 
 
@@ -56,6 +55,20 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   
   Issue: If you give internet to the cluster by sharing your wifi over ethernet on a Linux system (Ubuntu / Mint / others?) you will get an IP range slash: both "Share with other computers" DHCP and k3s use the 10.42.0.xxx range. To solve this you could get k3s to use another range, but that can be tricky to get working (in my experience). Easier fix is to let the DHCP of the connection sharing use another range, which you can easily configure in the GUI.
 
+
+* Next up: configure / find out, how to:
+  * Configure different namespaces (cicd, house, sparrenburcht, ?)
+  * Set up deployments for desired containers
+  * Set up services to they can talk to each other
+  * Set up NodePorts or other so Services can be reached from outside the cluster
+  * Set up Ingress for HTTP service routing
+  * Set up disk mounting for persistent configuration
+  * Set up DNS name in router for easy name based accessing of services
+  * Set up cicd pipeline that can publish to the cluster
+
+
+
+Issues:
 Installing k3s on master: seems success, but system completely hangs afterwards
 ```
 pi@pi-k3s-master:~ $ curl -sfL https://get.k3s.io | sh -
