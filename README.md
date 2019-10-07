@@ -58,7 +58,21 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
 
 * Next up: configure / find out, how to:
   * Configure different namespaces (cicd, house, sparrenburcht, ?)
-  * Set up deployments for desired containers
+  * Set up deployments for desired containers - check ARM compatibility!
+    * CI/CD
+      * Gitlab (CE + runner)
+      * Artifactory
+      * Docker registry
+    * House
+      * PYH server
+      * PYH webapp
+      * PYH Alexa proxy
+      * OpenHAB
+    * SparrenBurcht
+      * Adventure server
+    * Others
+      * Visualization? (spekt8 for ARM?)
+      * What else?
   * Set up services to they can talk to each other
   * Set up NodePorts or other so Services can be reached from outside the cluster
   * Set up Ingress for HTTP service routing
