@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: openfaas-figlet
+  labels:
+    app: openfaas-figlet
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 31111
+  selector:
+    app: openfaas-figlet
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openfaas-figlet
+  labels:
+   app: openfaas-figlet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openfaas-figlet
+  template:
+    metadata:
+      labels:
+        app: openfaas-figlet
+    spec:
+      containers:
+      - name: openfaas-figlet
+        image: functions/figlet:latest-armhf
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+
