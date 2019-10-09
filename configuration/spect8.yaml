@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spekt8
-          image: elliotxkim/spekt8
+          image: hanzov69/arm32v7-spekt8
           ports:
             - containerPort: 3000
 ---
