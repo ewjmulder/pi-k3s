@@ -46,7 +46,7 @@ Used these steps as guideline: https://blog.alexellis.io/test-drive-k3s-on-raspb
   * `export K3S_TOKEN="Kxxx::node:xxx"` (join key of master)
   * Run the installation script: `curl -sfL https://get.k3s.io | sh -` (it will know from the env vars that it's supposed to be a node for that server)
 * Now you can see the nodes when executing on the master: `sudo kubectl get node -o wide` 
-* When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. This is very easy: just copy the file `/etc/rancher/k3s/k3s.yaml` from the master onto your local computer to `~/.kube/config` (or merge the contents with your existing config for other clusters)
+* When done, it all works and you can play around with it on the master, but we want to run kubectl from our local machine and talk to the cluster over the network. This is very easy: just copy the file `/etc/rancher/k3s/k3s.yaml` from the master onto your local computer to `~/.kube/config` (or merge the contents with your existing config for other clusters). Be sure to edit the URL to point to the master node and change any other names (like 'default') to your liking.
 
 
 * Optional mod: Install 'Blinkt!': (https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-blinkt)
